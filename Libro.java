@@ -25,7 +25,17 @@ public class Libro {
     public String getAutor (){
         return autor;
     }
+    
     public String getTitulo (){
         return titulo;
     }
+    
+    public void imprimeAutor () {
+        String autor;
+    }
+    
+    public void imprimeTitulo () {
+        String titulo;
+    }
 }
+
