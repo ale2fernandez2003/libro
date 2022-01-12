@@ -14,16 +14,18 @@ public class Libro {
     private String titulo;
     private int numeroPaginas;
     private String numeroReferencia;
+    private int vecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas)
+    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas, int numeroDeVecesPrestado)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroDePaginas;
         numeroReferencia = "";
+        vecesPrestado = numeroDeVecesPrestado;
     }
     
     public String getAutor (){
@@ -40,6 +42,14 @@ public class Libro {
     
     public String getnumeroReferencia (){
         return numeroReferencia;
+    }
+    
+    public int getvecesPrestado (){
+        return vecesPrestado;
+    }
+    
+    public void prestar (){
+        vecesPrestado = vecesPrestado + 1;
     }
     
     public void setnumeroReferencia (String numeroDeReferencia){
@@ -67,7 +77,7 @@ public class Libro {
         else {
             numeroReferenciaAMostrar = numeroReferencia;
         }
-        System.out.println ("Título: "+titulo+", Autor: "+autor+", Páginas: " +numeroPaginas+", Numero de referencia: " +numeroReferencia);
+        System.out.println ("Título: "+titulo+", Autor: "+autor+", Páginas: " +numeroPaginas+", Numero de referencia: " +numeroReferencia+", numero de veces que se a prestado: "+ vecesPrestado);
     }
     
     public String getDetalles (){
@@ -79,7 +89,7 @@ public class Libro {
         else {
             numeroReferenciaAMostrar = numeroReferencia;
         }
-        devolver = "Título: "+titulo+", Autor: "+autor+", Páginas: " +numeroPaginas+", Numero de referencia: " +numeroReferenciaAMostrar;
+        devolver = "Título: "+titulo+", Autor: "+autor+", Páginas: " +numeroPaginas+", Numero de referencia: " +numeroReferenciaAMostrar+", numero de veces que se a prestado: "+ vecesPrestado;
         return devolver;
     }
 }
