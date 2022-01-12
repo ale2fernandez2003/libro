@@ -13,6 +13,7 @@ public class Libro {
     private String autor;
     private String titulo;
     private int numeroPaginas;
+    private String numeroReferencia;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -22,6 +23,7 @@ public class Libro {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroDePaginas;
+        numeroReferencia = "";
     }
     
     public String getAutor (){
@@ -36,6 +38,19 @@ public class Libro {
         return numeroPaginas;
     }
     
+    public String getnumeroReferencia (){
+        return numeroReferencia;
+    }
+    
+    public void setnumeroReferencia (String numeroDeReferencia){
+        if (numeroDeReferencia.length()>=3){
+            numeroReferencia = numeroDeReferencia;
+        }
+        else {
+            System.out.println("Error el numero de referencia debe tener al menos 3 caracteres");
+        }
+    }
+    
     public void imprimeAutor () {
         System.out.println ("El autor se llama " + autor);
     }
@@ -45,13 +60,26 @@ public class Libro {
     }
     
     public void imprimirDetalles () {
-        System.out.println ("Título: "+titulo+", Autor: "+autor+", Páginas: " +numeroPaginas);
+        String numeroReferenciaAMostrar = "zzz";
+        if (numeroReferencia == ""){
+            numeroReferencia = numeroReferenciaAMostrar;
+        }
+        else {
+            numeroReferenciaAMostrar = numeroReferencia;
+        }
+        System.out.println ("Título: "+titulo+", Autor: "+autor+", Páginas: " +numeroPaginas+", Numero de referencia: " +numeroReferencia);
     }
     
     public String getDetalles (){
         String devolver = "";
-        devolver = "Título: "+titulo+", Autor: "+autor+", Páginas: " +numeroPaginas;
+        String numeroReferenciaAMostrar = "zzz";
+        if (numeroReferencia == ""){
+            numeroReferencia = numeroReferenciaAMostrar;
+        }
+        else {
+            numeroReferenciaAMostrar = numeroReferencia;
+        }
+        devolver = "Título: "+titulo+", Autor: "+autor+", Páginas: " +numeroPaginas+", Numero de referencia: " +numeroReferenciaAMostrar;
         return devolver;
     }
 }
-
